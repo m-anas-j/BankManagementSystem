@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane prefHeight="240.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ConfirmBoxController">
+   <center>
+      <HBox prefHeight="69.0" prefWidth="143.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="yesButton" alignment="CENTER" mnemonicParsing="false" onAction="#yesButtonClicked" prefHeight="35.0" prefWidth="70.0" text="Yes">
+               <HBox.margin>
+                  <Insets left="30.0" top="40.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Product Sans" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="noButton" alignment="CENTER" mnemonicParsing="false" onAction="#noButtonClicked" prefHeight="35.0" prefWidth="70.0" text="No">
+               <HBox.margin>
+                  <Insets left="20.0" top="40.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Product Sans" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </center>
+   <top>
+      <Label fx:id="confirmBoxText" alignment="CENTER" prefHeight="82.0" prefWidth="332.0" text="Are you sure you want to quit?" textFill="WHITE" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Product Sans" size="14.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" top="20.0" />
+         </padding>
+      </Label>
+   </top>
+   <left>
+      <Region prefHeight="100.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Region prefHeight="100.0" prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Region prefHeight="40.0" prefWidth="320.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
