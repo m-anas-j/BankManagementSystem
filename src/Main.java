@@ -24,6 +24,7 @@ public class Main extends Application {
     @FXML static WelcomeScreenController welcomeScreen = new WelcomeScreenController();
     @FXML static SignUpScreenController signUpScreen = new SignUpScreenController();
     @FXML static ConfirmBoxController confirmBoxScreen = new ConfirmBoxController();
+    @FXML static FeaturesScreenController featuresScreen = new FeaturesScreenController();
 
     public static void main(String[] args) {
         launch(args);

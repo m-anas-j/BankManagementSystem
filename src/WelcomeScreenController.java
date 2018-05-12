@@ -72,6 +72,13 @@ public class WelcomeScreenController implements Initializable {
         myImageView.setImage(image);
     }
 
+    @FXML public void loginbuttonClicked() throws IOException
+    {
+        Main.featuresScreen.setFeaturesScene();
+        Main.mainWindow.setScene(Main.featuresScreen.getFeaturesScene());
+        Main.mainWindow.show();
+    }
+
     @FXML void signUpButtonClicked() throws IOException
     {
         Main.signUpScreen.setSignUpScreen();
