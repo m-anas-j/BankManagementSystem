@@ -103,32 +103,32 @@
                   <Font name="Product Sans" size="22.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="350.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3">
+            <TextField fx:id="nameField" alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="350.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3">
                <font>
                   <Font name="Product Sans" size="20.0" />
                </font>
             </TextField>
-            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <TextField fx:id="nationalityField" alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font name="Product Sans" size="20.0" />
                </font>
             </TextField>
-            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <TextField fx:id="addressField" alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font name="Product Sans" size="20.0" />
                </font>
             </TextField>
-            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="6">
+            <TextField fx:id="casteField" alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <font>
                   <Font name="Product Sans" size="20.0" />
                </font>
             </TextField>
-            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="7">
+            <TextField fx:id="mobileNumberField" alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="7">
                <font>
                   <Font name="Product Sans" size="20.0" />
                </font>
             </TextField>
-            <TextField alignment="CENTER" editable="false" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" promptText="Will be automatically generated" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="9">
+            <TextField fx:id="accountNumberField" alignment="CENTER" editable="false" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" promptText="Will be automatically generated" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="9">
                <font>
                   <Font name="Product Sans" size="20.0" />
                </font>
@@ -182,7 +182,7 @@
                   <Image url="@Assets/secret.png" />
                </image>
             </ImageView>
-            <DatePicker fx:id="dateOfBirth" prefHeight="50.0" prefWidth="350.0" showWeekNumbers="true" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dateOfBirthField" prefHeight="50.0" prefWidth="350.0" showWeekNumbers="true" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Region prefHeight="200.0" prefWidth="200.0" />
             <Region prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
             <Region prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
@@ -196,13 +196,15 @@
             <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" />
             <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" />
             <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" />
-            <ComboBox fx:id="gender" prefHeight="50.0" prefWidth="350.0" promptText="Sex" style="-fx-background-color: #ffffff; -fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ComboBox fx:id="genderField" prefHeight="50.0" prefWidth="350.0" promptText="Sex" style="-fx-background-color: #ffffff; -fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ComboBox fx:id="accountTypeField" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ComboBox fx:id="securityQuestionField" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="3" GridPane.rowIndex="8" />
          </children>
       </GridPane>
       <HBox maxHeight="150.0" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Region prefHeight="62.0" prefWidth="393.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="generateAccountNumber" alignment="CENTER" mnemonicParsing="false" onAction="#generateAccountNumberClicked" prefHeight="50.0" prefWidth="200.0" text="Generate Account Number">
+            <Button fx:id="generateAccountNumber" alignment="CENTER" mnemonicParsing="false" onAction="#generateAccountNumberClicked" prefHeight="50.0" prefWidth="300.0" text="Generate Account Number">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

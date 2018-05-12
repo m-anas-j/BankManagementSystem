@@ -39,7 +39,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello");
         //Parent root = FXMLLoader.load(getClass().getResource("WelcomeScreen.fxml"));
         //primaryStage.setScene(new Scene(root,800,600));
-        mainWindow.setOnCloseRequest(event -> {
+        /*mainWindow.setOnCloseRequest(event -> {
             event.consume();
             try {
                 confirmBoxScreen.setConfirmBoxScene();
@@ -49,7 +49,7 @@ public class Main extends Application {
 
             }
 
-        });
+        });*/
         primaryStage.setScene(welcomeScreen.getWelcomeScene());
         primaryStage.show();
 

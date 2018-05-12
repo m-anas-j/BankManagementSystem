@@ -23,17 +23,26 @@ public class CustomerDatabaseHandler {
         }
     }
 
-    public void addNewCustomer(String name, String creationDate, String dob, String nationality, String gender, String address, String accountType, String caste, String accountNumber, int mobileNumber, String secQues)
+    public long addNewCustomer(String name, String dob, String nationality, String gender, String address, String accountType, String caste, String accountNumber, int mobileNumber, String secQues)
     {
-        String insertQuery = "INSERT INTO CUSTOMER VALUES ( '" + name + "', SYSDATE, " + "TO_DATE('" + dob + "','dd/mm/yyyy'), '" + nationality + "', '" + gender + "', '" + address + "', '" + accountType + "', '" + caste + "', null, " + mobileNumber + ", '" + secQues + "')";
+        long acc_num=0;
+        String insertQuery = "INSERT INTO CUSTOMER VALUES ( '" + name + "', SYSDATE, " + "TO_DATE('" + dob + "','yyyy/mm/dd'), '" + nationality + "', '" + gender + "', '" + address + "', '" + accountType + "', '" + caste + "', null, " + mobileNumber + ", '" + secQues + "')";
         System.out.println(insertQuery);
         try
         {
             statement.executeUpdate(insertQuery);
+            statement.executeUpdate("COMMIT");
+            result = statement.executeQuery("SELECT MAX(ACCOUNT_NUMBER) FROM CUSTOMER");
+            while(result.next())
+            {
+                acc_num = result.getLong(1);
+            }
+            return acc_num;
         }
         catch(SQLException e)
         {
             System.out.println("addNewCustomer function " + e);
+            return 0;
         }
     }
 
