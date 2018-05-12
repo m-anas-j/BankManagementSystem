@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUpScreenController">
+   <children>
+      <AnchorPane maxHeight="150.0" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Assets/fire.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="164.0" layoutY="14.0" prefHeight="127.0" prefWidth="277.0" text="The Legit Bank" textFill="WHITE">
+               <font>
+                  <Font name="CANDYINC" size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <GridPane alignment="CENTER" prefHeight="600.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="206.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="0.0" prefWidth="65.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="667.0" minWidth="10.0" prefWidth="202.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="681.0" minWidth="10.0" prefWidth="527.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="50.0" prefWidth="500.0" text="Name:  " textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Address:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Account Type:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Caste:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Mobile Number:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Security Question:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Account Number:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Gender:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Date of Birth:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" minHeight="50.0" prefWidth="500.0" text="Nationality:  " textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Product Sans" size="22.0" />
+               </font>
+            </Label>
+            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="350.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Product Sans" size="20.0" />
+               </font>
+            </TextField>
+            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Product Sans" size="20.0" />
+               </font>
+            </TextField>
+            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Product Sans" size="20.0" />
+               </font>
+            </TextField>
+            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Product Sans" size="20.0" />
+               </font>
+            </TextField>
+            <TextField alignment="CENTER" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Product Sans" size="20.0" />
+               </font>
+            </TextField>
+            <TextField alignment="CENTER" editable="false" maxWidth="350.0" minHeight="50.0" prefWidth="400.0" promptText="Will be automatically generated" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="9">
+               <font>
+                  <Font name="Product Sans" size="20.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@Assets/ic_action_name.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@Assets/date_of_birth.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@Assets/nationality.png" />
+               </image></ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@Assets/Gender.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@Assets/Address.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <image>
+                  <Image url="@Assets/account_type.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <image>
+                  <Image url="@Assets/caste_icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <image>
+                  <Image url="@Assets/mobile_number.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <image>
+                  <Image url="@Assets/security_question.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <image>
+                  <Image url="@Assets/secret.png" />
+               </image>
+            </ImageView>
+            <DatePicker fx:id="dateOfBirth" prefHeight="50.0" prefWidth="350.0" showWeekNumbers="true" style="-fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" />
+            <Region prefHeight="200.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" />
+            <ComboBox fx:id="gender" prefHeight="50.0" prefWidth="350.0" promptText="Sex" style="-fx-background-color: #ffffff; -fx-background-radius: 6;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox maxHeight="150.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Region prefHeight="62.0" prefWidth="393.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="generateAccountNumber" alignment="CENTER" mnemonicParsing="false" onAction="#generateAccountNumberClicked" prefHeight="50.0" prefWidth="200.0" text="Generate Account Number">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="Product Sans" size="15.0" />
+               </font>
+            </Button>
+            <Region prefHeight="62.0" prefWidth="408.0" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

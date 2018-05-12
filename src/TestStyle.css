@@ -1,0 +1,49 @@
+.root
+{
+    -fx-background-color: "#424242";
+}
+.button
+{
+    -fx-background-color: "#ef5350";
+    -fx-background-radius: 25;
+}
+.text-field
+{
+    -fx-background-color: "#ffffff";
+}
+.label
+{
+    -fx-font-color: "#ffffff";
+}
+.button-signin
+{
+    -fx-background-color: #1976d2;
+    -fx-background-radius: 25;
+}
+.button-right-left
+{
+    -fx-background-color: "transparent";
+}
+.button-blue
+{
+    -fx-background-color: #1e88e5;
+    -fx-background-radius: 25;
+}
+
+.list-cell
+{
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+    -fx-font-size: 20px;
+}
+.list-cell:hover
+{
+    -fx-background-color: aliceblue;
+    -fx-background-radius: 6;
+    -fx-font-size: 20px;
+}
+
+.date-picker
+{
+    -fx-font-size: 20;
+}
