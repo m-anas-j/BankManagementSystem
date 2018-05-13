@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FeaturesScreenController">
     <center>
         <GridPane hgap="8.0" maxHeight="400.0" prefHeight="200.0" vgap="10.0" BorderPane.alignment="CENTER">
             <columnConstraints>
@@ -28,7 +27,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Transfer funds">
+                <Button fx:id="transferFundsButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Transfer funds">
                     <GridPane.margin>
                         <Insets />
                     </GridPane.margin>
@@ -43,7 +42,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Withdraw" GridPane.columnIndex="1">
+                <Button fx:id="withdrawButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Withdraw" GridPane.columnIndex="1">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -55,7 +54,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Deposit" GridPane.columnIndex="2">
+                <Button fx:id="depositButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#depositButtonClicked" text="Deposit" GridPane.columnIndex="2">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -67,7 +66,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Check balance" GridPane.columnIndex="3">
+                <Button fx:id="checkBalanceButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Check balance" GridPane.columnIndex="3">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -79,7 +78,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Generate statement" GridPane.rowIndex="1">
+                <Button fx:id="generateStatementButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Generate statement" GridPane.rowIndex="1">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -91,7 +90,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Current investments" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="currentInvestmentsButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Current investments" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -103,7 +102,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="User profile" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="userProfileButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="User profile" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>

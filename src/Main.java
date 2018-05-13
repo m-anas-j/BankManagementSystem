@@ -20,11 +20,17 @@ public class Main extends Application {
 
     @FXML static Stage mainWindow = new Stage();
     @FXML static Stage confirmBoxWindow = new Stage();
+    @FXML static Stage featureWindow = new Stage();
 
     @FXML static WelcomeScreenController welcomeScreen = new WelcomeScreenController();
     @FXML static SignUpScreenController signUpScreen = new SignUpScreenController();
+    @FXML static SignUpScreenContinuedController signUpScreenContinued = new SignUpScreenContinuedController();
     @FXML static ConfirmBoxController confirmBoxScreen = new ConfirmBoxController();
     @FXML static FeaturesScreenController featuresScreen = new FeaturesScreenController();
+    @FXML static DepositScreenController depositScreen = new DepositScreenController();
+    //currently logged in account
+    static int currentLoggedInAccount = 1805131315;
+    static int currentLoggedInCustomer = 2018051324;
 
     public static void main(String[] args) {
         launch(args);

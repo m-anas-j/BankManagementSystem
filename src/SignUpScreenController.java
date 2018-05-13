@@ -29,6 +29,7 @@ public class SignUpScreenController implements Initializable{
 
     @FXML GridPane firstGridPane = new GridPane();
     @FXML Scene signUpScene = new Scene(firstGridPane);
+    @FXML TextField customerIdField = new TextField();
     @FXML TextField nameField = new TextField();
     @FXML DatePicker dateOfBirthField = new DatePicker();
     @FXML TextField nationalityField = new TextField();
@@ -41,7 +42,7 @@ public class SignUpScreenController implements Initializable{
     @FXML ComboBox<String> securityQuestionField = new ComboBox<>();
     @FXML Button generateAccountNumber = new Button();
     @FXML int getGenerateAccountNumberState = 1;
-
+    static String generatedCustomerId;
 
 
     public SignUpScreenController()
@@ -50,17 +51,21 @@ public class SignUpScreenController implements Initializable{
     }
 
 
-    public void setSignUpScreen() throws IOException
+    public void setSignUpScene(String _generatedCustomerId) throws IOException
     {
         Parent root = FXMLLoader.load(getClass().getResource("SignUpScreen.fxml"));
-        signUpScene = new Scene(root,1000,800);
+        signUpScene = new Scene(root,1000,900);
         signUpScene.setUserAgentStylesheet("TestStyle.css");
+        SignUpScreenController.generatedCustomerId = _generatedCustomerId;
+        customerIdField.setText(SignUpScreenController.generatedCustomerId);
+        System.out.println("Generated customer id from previous scene " + SignUpScreenController.generatedCustomerId);
     }
 
     public Scene getSignUpScene()
     {
         return signUpScene;
     }
+
 
     @FXML public void generateAccountNumberClicked() throws SQLException
     {
@@ -77,7 +82,7 @@ public class SignUpScreenController implements Initializable{
             String securityQues = securityQuestionField.getValue();
             CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
             //customerDatabaseHandler.addNewCustomer("anas","27/08/97","bd","Male","CTG","Current Account","Muslim",null,123,"Nein?");
-            long acc_num = customerDatabaseHandler.addNewCustomer(name, dob, nationality, gender, address, accountType, caste, null, mobileNumber, securityQues);
+            long acc_num = customerDatabaseHandler.addNewAccount(name, accountType, null, mobileNumber, securityQues,SignUpScreenController.generatedCustomerId);
             customerDatabaseHandler.clearMemory();
 
             StringBuilder stringBuilder = new StringBuilder();
@@ -86,6 +91,7 @@ public class SignUpScreenController implements Initializable{
 
             //show generated account number
             accountNumberField.setText(stringBuilder.toString());
+            customerIdField.setText(generatedCustomerId);
             //set every field to uneditable
             nameField.setEditable(false);
             dateOfBirthField.setEditable(false);
@@ -100,7 +106,7 @@ public class SignUpScreenController implements Initializable{
 
             //change generate button
             generateAccountNumber.getStyleClass().add("button-blue");
-            generateAccountNumber.setText("Continue;");
+            generateAccountNumber.setText("Continue");
             getGenerateAccountNumberState = 0;
         }
         else
@@ -108,8 +114,8 @@ public class SignUpScreenController implements Initializable{
             try
             {
                 getGenerateAccountNumberState = 1;
-                Main.featuresScreen.setFeaturesScene();
-                Main.mainWindow.setScene(Main.featuresScreen.getFeaturesScene());
+                Main.signUpScreenContinued.setSignUpSceneContinued();
+                Main.mainWindow.setScene(Main.signUpScreenContinued.getSignUpSceneContinued());
                 Main.mainWindow.show();
             }catch (IOException e)
             {
@@ -120,6 +126,7 @@ public class SignUpScreenController implements Initializable{
     }
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -127,7 +134,7 @@ public class SignUpScreenController implements Initializable{
         firstGridPane.setHgap(8);
         firstGridPane.setVgap(10);
 
-        //set default value to dpb
+        //set default value to dob
         dateOfBirthField.setValue(LocalDate.now());
         //set values to gender
         genderField.getItems().addAll("Male","Female");
@@ -137,6 +144,9 @@ public class SignUpScreenController implements Initializable{
         //set security questions
         securityQuestionField.getItems().addAll("What is your pets name?","What is your favourite dessert?","Who is your favourite footballer?");
 
+
+        System.out.println("Setting customer id value... " + SignUpScreenController.generatedCustomerId);
+        customerIdField.setText(SignUpScreenController.generatedCustomerId);
 
     }
 }

@@ -9,35 +9,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="firstAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeScreenController">
+<AnchorPane fx:id="firstAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeScreenController">
     <children>
         <AnchorPane layoutX="506.0" prefHeight="800.0" prefWidth="480.0">
             <children>
                 <ImageView fx:id="myImageView" fitHeight="800.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
-                <Button fx:id="leftButton" layoutX="14.0" minHeight="800.0" minWidth="70.0" mnemonicParsing="false" onAction="#leftButtonClicked">
+                <Button fx:id="leftButton" layoutX="14.0" minHeight="800.0" minWidth="70.0" mnemonicParsing="false" onAction="#leftButtonClicked" prefHeight="900.0" prefWidth="71.0">
                     <graphic>
                         <ImageView fx:id="leftArrow" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                     </graphic></Button>
-                <Button fx:id="rightButton" layoutX="416.0" minHeight="800.0" minWidth="70.0" mnemonicParsing="false" onAction="#rightButtonClicked">
+                <Button fx:id="rightButton" layoutX="416.0" minHeight="800.0" minWidth="70.0" mnemonicParsing="false" onAction="#rightButtonClicked" prefHeight="900.0" prefWidth="71.0">
                     <graphic>
                         <ImageView fx:id="rightArrow" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                     </graphic></Button>
             </children>
         </AnchorPane>
-        <TextField fx:id="userNameTextField" layoutX="242.0" layoutY="364.0" prefHeight="50.0" prefWidth="200.0" promptText="Your Usernanme">
+        <TextField fx:id="userNameTextField" alignment="CENTER" layoutX="242.0" layoutY="364.0" prefHeight="50.0" prefWidth="200.0" promptText="Your Username" style="-fx-background-radius: 6;">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
+         <font>
+            <Font name="Product Sans" size="20.0" />
+         </font>
         </TextField>
-        <TextField fx:id="passWordTextField" layoutX="242.0" layoutY="460.0" prefHeight="50.0" prefWidth="200.0" promptText="Your password" />
+        <TextField fx:id="passWordTextField" alignment="CENTER" layoutX="242.0" layoutY="460.0" prefHeight="50.0" prefWidth="200.0" promptText="Your password" style="-fx-background-radius: 6;">
+         <font>
+            <Font name="Product Sans" size="20.0" />
+         </font></TextField>
         <Label alignment="CENTER" layoutX="42.0" layoutY="364.0" prefHeight="50.0" prefWidth="200.0" text="Username:" textFill="WHITE">
             <font>
-                <Font name="Product Sans" size="25.0" />
+                <Font name="Product Sans" size="22.0" />
             </font>
         </Label>
         <Label alignment="CENTER" layoutX="42.0" layoutY="460.0" prefHeight="50.0" prefWidth="200.0" text="Password:" textFill="WHITE">
             <font>
-                <Font size="25.0" />
+                <Font name="Product Sans" size="22.0" />
             </font>
         </Label>
         <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="142.0" layoutY="559.0" mnemonicParsing="false" onAction="#loginbuttonClicked" prefHeight="40.0" prefWidth="200.0" text="Sign In" textFill="WHITE">

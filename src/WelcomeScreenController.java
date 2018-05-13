@@ -48,7 +48,7 @@ public class WelcomeScreenController implements Initializable {
     public void setWelcomeScene() throws IOException
     {
         Parent root = FXMLLoader.load(getClass().getResource("WelcomeScreen.fxml"));
-        welcomeScene = new Scene(root,1000,800);
+        welcomeScene = new Scene(root,1000,900);
         welcomeScene.setUserAgentStylesheet("TestStyle.css");
     }
     public Scene getWelcomeScene()
@@ -81,8 +81,8 @@ public class WelcomeScreenController implements Initializable {
 
     @FXML void signUpButtonClicked() throws IOException
     {
-        Main.signUpScreen.setSignUpScreen();
-        Main.mainWindow.setScene(Main.signUpScreen.getSignUpScene());
+        Main.signUpScreenContinued.setSignUpSceneContinued();
+        Main.mainWindow.setScene(Main.signUpScreenContinued.getSignUpSceneContinued());
         Main.mainWindow.show();
     }
 
