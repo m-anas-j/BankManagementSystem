@@ -94,7 +94,7 @@
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@Assets/investment.png" />
+                                <Image url="@Assets/transaction.png" />
                             </image>
                         </ImageView>
                     </graphic>
