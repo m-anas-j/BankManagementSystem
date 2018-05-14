@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RecentTransactionsScreenController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <TableView fx:id="transactionTable" prefHeight="600.0" prefWidth="800.0" style="-fx-background-radius: 6; -fx-padding: 0;">
+              <columns>
+                <TableColumn fx:id="transactionDateColumn" prefWidth="160.0" text="Transaction Date &amp; Time" />
+                <TableColumn fx:id="transactionTypeColumn" prefWidth="160.0" text="Transaction Type" />
+                  <TableColumn fx:id="withdrawAccountColumn" prefWidth="160.0" text="Withdraw Account" />
+                  <TableColumn fx:id="depositAccountColumn" prefWidth="160.0" text="Deposit Account" />
+                  <TableColumn fx:id="transactionAmountColumn" prefWidth="160.0" text="Transaction Amount" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</HBox>

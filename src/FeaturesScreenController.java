@@ -1,22 +1,9 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.TextAlignment;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 import java.io.IOException;
@@ -66,6 +53,13 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.transferFundsFeature.setTransferFundsScene();
         Main.featureWindow.setScene(Main.transferFundsFeature.getTransferFundsScene());
+        Main.featureWindow.show();
+    }
+
+    @FXML public void recentTransactionsButtonClicked() throws IOException
+    {
+        Main.recentTransactionsScreen.setRecentTransactionsScene();
+        Main.featureWindow.setScene(Main.recentTransactionsScreen.getRecentTransactionsScene());
         Main.featureWindow.show();
     }
 

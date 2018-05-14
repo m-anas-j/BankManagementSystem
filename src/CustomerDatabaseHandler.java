@@ -1,3 +1,6 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
@@ -149,6 +152,39 @@ public class CustomerDatabaseHandler {
             System.out.println("addNewCustomer function " + e);
             return 0;
         }
+    }
+
+    public ObservableList<TransactionInfo> getTransactionInfo(int accountNumber)
+    {
+        ObservableList<TransactionInfo> transactions = FXCollections.observableArrayList();
+
+        String date;
+        String type = "";
+        int withdraw = 0;
+        int deposit = 0;
+        int amount = 0;
+        try
+        {
+            String sql = "SELECT TRANSACTION_DATE, TRANSACTION_TYPE, ACCOUNT_WITHDRAWN_FROM, ACCOUNT_DEPOSITED_TO, TRANSACTION_AMOUNT FROM TRANSACTION WHERE ACCOUNT_WITHDRAWN_FROM = " + accountNumber + " OR ACCOUNT_DEPOSITED_TO = " + accountNumber;
+            //result = statement.executeQuery("SELECT TRANSACTION_DATE, TRANSACTION_TYPE, WITHDRAW_ACCOUNT, DEPOSIT_ACCOUNT, AMOUNT FROM TRANSACTION WHERE WITHDRAW_ACCOUNT = " + accountNumber + " OR DEPOSIT_ACCOUNT = " + accountNumber);
+            System.out.println(sql);
+            result = statement.executeQuery(sql);
+            while (result.next())
+            {
+                date = result.getString(1);
+                type = result.getString(2);
+                withdraw = result.getInt(3);
+                deposit = result.getInt(4);
+                amount = result.getInt(5);
+                transactions.add(new TransactionInfo(date, type, withdraw, deposit, amount));
+                //System.out.println(date + " " + type + " " + withdraw + " " + deposit + " " + amount);
+            }
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Exception in getTransactionInfo function " + e);
+        }
+        return transactions;
     }
 
     public void clearMemory() throws SQLException
