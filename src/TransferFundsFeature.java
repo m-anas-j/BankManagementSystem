@@ -45,7 +45,7 @@ public class TransferFundsFeature implements Initializable{
     @FXML public void confirmButtonClicked()
     {
         CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
-        int transferrerTotal = customerDatabaseHandler.withdraw(Main.currentLoggedInAccount,Integer.parseInt(amountField.getText()));
+        int transferrerTotal = customerDatabaseHandler.transfer(Main.currentLoggedInAccount,Integer.parseInt(receivingAccountField.getText()),Integer.parseInt(amountField.getText()));
         if (transferrerTotal==-1)
         {
             updatedTransferrerBalance.setText("Insufficient balance");
@@ -53,8 +53,8 @@ public class TransferFundsFeature implements Initializable{
         else
         {
             updatedTransferrerBalance.setText(Integer.toString(transferrerTotal));
-            int receiverTotal = customerDatabaseHandler.deposit(Integer.parseInt(receivingAccountField.getText()),Integer.parseInt(amountField.getText()));
-            updatedReceiverBalance.setText(Integer.toString(receiverTotal));
+            /*int receiverTotal = customerDatabaseHandler.deposit(Integer.parseInt(receivingAccountField.getText()),Integer.parseInt(amountField.getText()));
+            updatedReceiverBalance.setText(Integer.toString(receiverTotal));*/
         }
 
         confirmButton.setVisible(false);

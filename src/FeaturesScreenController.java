@@ -34,6 +34,7 @@ public class FeaturesScreenController implements Initializable{
     @FXML Button generateStatementButton = new Button();
     @FXML Button currentInvestmentsButton = new Button();
     @FXML Button userProfileButton = new Button();
+    @FXML Button signOutButton = new Button();
 
     public void setFeaturesScene() throws IOException
     {
@@ -66,6 +67,13 @@ public class FeaturesScreenController implements Initializable{
         Main.transferFundsFeature.setTransferFundsScene();
         Main.featureWindow.setScene(Main.transferFundsFeature.getTransferFundsScene());
         Main.featureWindow.show();
+    }
+
+    @FXML public void signOutButtonClicked() throws IOException
+    {
+        Main.mainWindow.close();
+        Main.mainWindow.setScene(Main.welcomeScreen.getWelcomeScene());
+        Main.mainWindow.show();
     }
 
 
