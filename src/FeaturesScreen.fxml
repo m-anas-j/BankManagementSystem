@@ -27,7 +27,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="transferFundsButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Transfer funds">
+                <Button fx:id="transferFundsButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#transferFundsButtonClicked" text="Transfer funds">
                     <GridPane.margin>
                         <Insets />
                     </GridPane.margin>
@@ -42,7 +42,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button fx:id="withdrawButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Withdraw" GridPane.columnIndex="1">
+                <Button fx:id="withdrawButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#withdrawButtonClicked" text="Withdraw" GridPane.columnIndex="1">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>

@@ -54,6 +54,21 @@ public class FeaturesScreenController implements Initializable{
         Main.featureWindow.show();
     }
 
+    @FXML public void withdrawButtonClicked() throws IOException
+    {
+        Main.withdrawScreen.setWithdrawScene();
+        Main.featureWindow.setScene(Main.withdrawScreen.getWithdrawScene());
+        Main.featureWindow.show();
+    }
+
+    @FXML public void transferFundsButtonClicked() throws IOException
+    {
+        Main.transferFundsFeature.setTransferFundsScene();
+        Main.featureWindow.setScene(Main.transferFundsFeature.getTransferFundsScene());
+        Main.featureWindow.show();
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         transferFundsButton.getStyleClass().add("button-featuresscreen");

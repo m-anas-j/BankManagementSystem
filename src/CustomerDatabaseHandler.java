@@ -84,6 +84,47 @@ public class CustomerDatabaseHandler {
         }
     }
 
+    public int withdraw(int accountNumber, int amount)
+    {
+        try
+        {
+            callableStatement = con.prepareCall("{CALL WITHDRAW(?,?,?)}");
+            callableStatement.registerOutParameter(3,Types.NUMERIC);
+            callableStatement.setInt(1,accountNumber);
+            callableStatement.setInt(2,amount);
+            callableStatement.execute();
+            int total = callableStatement.getInt(3);
+            System.out.println(total);
+            return total;
+        }catch(SQLException e)
+        {
+            System.out.println("Exception in withdraw function " + e);
+            return 0;
+        }
+    }
+
+    public int transfer(int transferrer, int receiver, int amount)
+    {
+        try
+        {
+            callableStatement = con.prepareCall("{CALL TRANSFER_FUNDS(?,?,?,?,?)}");
+            callableStatement.registerOutParameter(4,Types.NUMERIC);
+            callableStatement.registerOutParameter(5,Types.NUMERIC);
+            callableStatement.setInt(1,transferrer);
+            callableStatement.setInt(2,receiver);
+            callableStatement.setInt(3,amount);
+            callableStatement.execute();
+            int transferrerTotal = callableStatement.getInt(4);
+            int receiverTotal = callableStatement.getInt(5);
+            System.out.println(transferrerTotal);
+            return transferrerTotal;
+        }catch(SQLException e)
+        {
+            System.out.println("Exception in withdraw function " + e);
+            return 0;
+        }
+    }
+
     public long addNewCustomer(String name, String dob, String nationality, String gender, String address, String religion, int mobileNumber, String password, String pin)
     {
         long custNum=0;

@@ -28,9 +28,11 @@ public class Main extends Application {
     @FXML static ConfirmBoxController confirmBoxScreen = new ConfirmBoxController();
     @FXML static FeaturesScreenController featuresScreen = new FeaturesScreenController();
     @FXML static DepositScreenController depositScreen = new DepositScreenController();
+    @FXML static WithdrawScreenController withdrawScreen = new WithdrawScreenController();
+    @FXML static TransferFundsFeature transferFundsFeature = new TransferFundsFeature();
     //currently logged in account
-    static int currentLoggedInAccount = 1805131315;
-    static int currentLoggedInCustomer = 2018051324;
+    static int currentLoggedInAccount = 180513131;
+    static int currentLoggedInCustomer = 201805131;
 
     public static void main(String[] args) {
         launch(args);
