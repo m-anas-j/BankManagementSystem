@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CheckBalanceScreenController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/fire.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="164.0" layoutY="47.0" text="The Legit Bank" textFill="WHITE">
+                     <font>
+                        <Font name="CANDYINC" size="96.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <GridPane hgap="8.0" prefHeight="250.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="balanceField" alignment="CENTER" editable="false" maxWidth="350.0" prefHeight="50.0" promptText="Balance" style="-fx-background-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Product Sans" size="20.0" />
+                     </font>
+                  </TextField>
+                  <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="50.0" text="Current Account Balance:" textFill="WHITE" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Product Sans" size="23.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="accountList" prefHeight="50.0" prefWidth="350.0" style="-fx-background-radius: 6;" GridPane.columnIndex="1" />
+                  <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="50.0" text="Choose an account:" textFill="WHITE">
+                     <font>
+                        <Font name="Product Sans" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="confirmButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#confirmButtonClicked" prefHeight="40.0" prefWidth="150.0" text="Confirm" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Product Sans" size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="230.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="dismissButton" mnemonicParsing="false" onAction="#dismissButtonClicked" prefHeight="40.0" prefWidth="150.0" text="Dismiss" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Product Sans" size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>

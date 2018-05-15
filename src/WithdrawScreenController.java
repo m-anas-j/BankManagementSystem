@@ -42,16 +42,27 @@ public class WithdrawScreenController implements Initializable{
 
     @FXML public void confirmButtonClicked()
     {
+        Main.currentLoggedInAccount = Integer.parseInt(withdrawAccountList.getValue());
         CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
-        int total = customerDatabaseHandler.withdraw(Main.currentLoggedInAccount,Integer.parseInt(amountField.getText()));
-        if (total==-1)
+        int pinVerified = customerDatabaseHandler.verifyPin(Main.currentLoggedInCustomer,Integer.parseInt(pinField.getText()));
+        if (pinVerified==1)
         {
-            updatedBalanceField.setText("Insufficient balance");
+            int total = customerDatabaseHandler.withdraw(Main.currentLoggedInAccount,Integer.parseInt(amountField.getText()));
+            if (total==-1)
+            {
+                updatedBalanceField.setText("Insufficient balance");
+            }
+            else
+                updatedBalanceField.setText(Integer.toString(total));
+
+            confirmButton.setVisible(false);
         }
         else
-            updatedBalanceField.setText(Integer.toString(total));
+        {
+            pinField.clear();
+            updatedBalanceField.setText("Invalid PIN");
+        }
 
-        confirmButton.setVisible(false);
     }
 
     @FXML public void desmissButtonClicked()

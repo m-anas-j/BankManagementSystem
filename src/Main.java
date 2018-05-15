@@ -30,7 +30,9 @@ public class Main extends Application {
     @FXML static DepositScreenController depositScreen = new DepositScreenController();
     @FXML static WithdrawScreenController withdrawScreen = new WithdrawScreenController();
     @FXML static TransferFundsFeature transferFundsFeature = new TransferFundsFeature();
+    @FXML static CheckBalanceScreenController checkBalanceScreen = new CheckBalanceScreenController();
     @FXML static RecentTransactionsScreenController recentTransactionsScreen = new RecentTransactionsScreenController();
+    @FXML static UserProfileScreenController userProfileScreen = new UserProfileScreenController();
     //currently logged in account
     static int currentLoggedInAccount = 180513131;
     static int currentLoggedInCustomer = 201805131;
@@ -48,7 +50,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hello");
         //Parent root = FXMLLoader.load(getClass().getResource("WelcomeScreen.fxml"));
         //primaryStage.setScene(new Scene(root,800,600));
-        /*mainWindow.setOnCloseRequest(event -> {
+        mainWindow.setOnCloseRequest(event -> {
             event.consume();
             try {
                 confirmBoxScreen.setConfirmBoxScene();
@@ -58,7 +60,7 @@ public class Main extends Application {
 
             }
 
-        });*/
+        });
         primaryStage.setScene(welcomeScreen.getWelcomeScene());
         primaryStage.show();
 

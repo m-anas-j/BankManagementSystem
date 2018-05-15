@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerDatabaseHandler {
 
@@ -24,6 +25,46 @@ public class CustomerDatabaseHandler {
         catch(Exception e)
         {
             System.out.println("Error while connecting to database "+e);
+        }
+    }
+
+    public int verifyLogin(int enteredCustomerId, String enteredPassword)
+    {
+        try
+        {
+            callableStatement = con.prepareCall("{CALL LOGIN_PROCEDURE(?,?,?)}");
+            callableStatement.registerOutParameter(3,Types.NUMERIC);
+            callableStatement.setInt(1,enteredCustomerId);
+            callableStatement.setString(2,enteredPassword);
+            callableStatement.execute();
+            int result = callableStatement.getInt(3);
+            System.out.println(result);
+            return result;
+        }catch(SQLException e)
+        {
+            System.out.println("Exception in login function " + e);
+            return 0;
+        }
+    }
+
+    public int verifyPin(int enteredCustomerId, int enteredPin)
+    {
+        System.out.println("Inside verifyPin function " + enteredCustomerId + " " + enteredPin);
+        try
+        {
+            callableStatement = con.prepareCall("{CALL VERIFY_PIN(?,?,?)}");
+            callableStatement.registerOutParameter(3,Types.NUMERIC);
+            callableStatement.setInt(1,enteredCustomerId);
+            callableStatement.setInt(2,enteredPin);
+            callableStatement.execute();
+            int result = callableStatement.getInt(3);
+            System.out.println(result);
+            return result;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Exception in verifyPin function " + e);
+            return 0;
         }
     }
 
@@ -123,9 +164,65 @@ public class CustomerDatabaseHandler {
             return transferrerTotal;
         }catch(SQLException e)
         {
-            System.out.println("Exception in withdraw function " + e);
+            System.out.println("Exception in transfer function " + e);
             return 0;
         }
+    }
+
+    public int checkBalance(int selectedAccount)
+    {
+        int balance = 0;
+        try
+        {
+            callableStatement = con.prepareCall("{CALL CHECK_BALANCE(?,?)}");
+            callableStatement.registerOutParameter(2,Types.NUMERIC);
+            callableStatement.setInt(1,selectedAccount);
+            callableStatement.execute();
+            balance = callableStatement.getInt(2);
+        }
+        catch(SQLException e)
+        {
+            System.out.println("Exception in checkBalance function " + e);
+            balance = -1;
+        }
+        return balance;
+    }
+
+    public ArrayList<String> getCustomerInfo(int accountId)
+    {
+        ArrayList<String> accountInformationList = new ArrayList<>();
+
+        try
+        {
+            String query = "SELECT NAME, DATE_OF_SIGN_UP, NATIONALITY, GENDER, RELIGION, MOBILE_NUMBER FROM CUSTOMER WHERE CUSTOMER_ID = " + accountId;
+            result = statement.executeQuery(query);
+            while(result.next())
+            {
+                /*accountInformationList.add(result.getString(0));
+                accountInformationList.add(result.getString(1));
+                accountInformationList.add(result.getString(2));
+                accountInformationList.add(result.getString(3));
+                accountInformationList.add(result.getString(4));
+                StringBuilder sb = new StringBuilder();
+                sb.append("");
+                sb.append(result.getInt(5));*/
+                accountInformationList.add(result.getString(1));
+                accountInformationList.add(result.getDate(2).toString());
+                accountInformationList.add(result.getString(3));
+                accountInformationList.add(result.getString(4));
+                accountInformationList.add(result.getString(5));
+                StringBuilder sb = new StringBuilder();
+                sb.append("");
+                sb.append(result.getInt(6));
+
+                accountInformationList.add(sb.toString());
+            }
+        }
+        catch(SQLException e)
+        {
+
+        }
+        return accountInformationList;
     }
 
     public long addNewCustomer(String name, String dob, String nationality, String gender, String address, String religion, int mobileNumber, String password, String pin)

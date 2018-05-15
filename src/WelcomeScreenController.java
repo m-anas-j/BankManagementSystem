@@ -37,13 +37,17 @@ public class WelcomeScreenController implements Initializable {
     @FXML Button leftButton = new Button();
     @FXML Button rightButton = new Button();
     @FXML TextField userNameTextField = new TextField();
-    @FXML TextField passWordTextField = new TextField();
+    @FXML PasswordField passWordTextField = new PasswordField();
     @FXML Button loginButton = new Button();
     @FXML Button signupButton = new Button();
     @FXML ImageView myImageView = new ImageView();
     @FXML ImageView bankImageView = new ImageView();
     @FXML ImageView rightArrow = new ImageView();
     @FXML ImageView leftArrow = new ImageView();
+    @FXML Button exitButton = new Button();
+
+    String [] imageLocations = new String[5];
+    int adLoopCounter = 0;
 
     public void setWelcomeScene() throws IOException
     {
@@ -59,24 +63,55 @@ public class WelcomeScreenController implements Initializable {
     @FXML void leftButtonClicked()
     {
         //leftButton.setText("Left");
-        File file = new File("src/Assets/439494.jpg");
+        File file = new File(imageLocations[adLoopCounter]);
         Image image = new Image(file.toURI().toString());
         myImageView.setImage(image);
+        adLoopCounter = (adLoopCounter+1)%5;
     }
 
     @FXML void rightButtonClicked()
     {
         //rightButton.setText("Right");
-        File file = new File("src/Assets/439235.jpg");
+
+        File file = new File(imageLocations[adLoopCounter]);
         Image image = new Image(file.toURI().toString());
         myImageView.setImage(image);
+        adLoopCounter = (adLoopCounter+1)%5;
     }
 
     @FXML public void loginbuttonClicked() throws IOException
     {
-        Main.featuresScreen.setFeaturesScene();
+        /*Main.featuresScreen.setFeaturesScene();
         Main.mainWindow.setScene(Main.featuresScreen.getFeaturesScene());
-        Main.mainWindow.show();
+        Main.mainWindow.show();*/
+
+        try
+        {
+            CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
+            int result = customerDatabaseHandler.verifyLogin(Integer.parseInt(userNameTextField.getText()), passWordTextField.getText());
+            if (result==1)
+            {
+                Main.currentLoggedInCustomer = Integer.parseInt(userNameTextField.getText());
+                Main.featuresScreen.setFeaturesScene();
+                Main.mainWindow.setScene(Main.featuresScreen.getFeaturesScene());
+                Main.mainWindow.show();
+                userNameTextField.clear();
+                passWordTextField.clear();
+            }
+            else
+            {
+                userNameTextField.clear();
+                userNameTextField.setPromptText("Wrong credentials!");
+                passWordTextField.clear();
+                passWordTextField.setPromptText("Wrong credentials!");
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            userNameTextField.clear();
+            userNameTextField.setPromptText("Use numbers!");
+            passWordTextField.clear();
+        }
     }
 
     @FXML void signUpButtonClicked() throws IOException
@@ -84,6 +119,13 @@ public class WelcomeScreenController implements Initializable {
         Main.signUpScreenContinued.setSignUpSceneContinued();
         Main.mainWindow.setScene(Main.signUpScreenContinued.getSignUpSceneContinued());
         Main.mainWindow.show();
+    }
+
+    @FXML void exitButtonClicked() throws IOException
+    {
+        Main.confirmBoxScreen.setConfirmBoxScene();
+        Main.confirmBoxWindow.setScene(Main.confirmBoxScreen.getConfirmBoxScene());
+        Main.confirmBoxWindow.show();
     }
 
     @Override
@@ -104,5 +146,11 @@ public class WelcomeScreenController implements Initializable {
         leftButton.getStyleClass().add("button-right-left");
 
         signupButton.getStyleClass().add("button-blue");
+
+        imageLocations[0] = "src/Assets/439494.jpg";
+        imageLocations[1] = "src/Assets/439235.jpg";
+        imageLocations[2] = "src/Assets/blabla.jpg";
+        imageLocations[3] = "src/Assets/yaya.jpg";
+        imageLocations[4] = "src/Assets/lala.jpg";
     }
 }

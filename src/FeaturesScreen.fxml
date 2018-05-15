@@ -66,7 +66,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button fx:id="checkBalanceButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Check balance" GridPane.columnIndex="3">
+                <Button fx:id="checkBalanceButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#checkBalanceButtonClicked" text="Check balance" GridPane.columnIndex="3">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -78,19 +78,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button fx:id="generateStatementButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Generate statement" GridPane.rowIndex="1">
-                    <graphic>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@Assets/bank_statement.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <font>
-                        <Font name="Product Sans" size="23.0" />
-                    </font>
-                </Button>
-                <Button fx:id="currentInvestmentsButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recentTransactionsButtonClicked" text="Recent Transactions" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="currentInvestmentsButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#recentTransactionsButtonClicked" text="Recent Transactions" GridPane.rowIndex="1">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -102,7 +90,7 @@
                         <Font name="Product Sans" size="23.0" />
                     </font>
                 </Button>
-                <Button fx:id="userProfileButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="User profile" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="userProfileButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#userProfileButtonClicked" text="User profile" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <graphic>
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -126,6 +114,18 @@
                <font>
                   <Font name="Product Sans" size="23.0" />
                </font></Button>
+            <Button fx:id="newBankAccountButton" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#newBankAccountButtonClicked" text="New Bank Account" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/new_bank_account.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Product Sans" size="23.0" />
+               </font>
+            </Button>
             </children>
             <padding>
                 <Insets left="10.0" right="10.0" />

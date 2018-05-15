@@ -45,19 +45,28 @@ public class TransferFundsFeature implements Initializable{
     @FXML public void confirmButtonClicked()
     {
         CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
+        int pinVerified = customerDatabaseHandler.verifyPin(Main.currentLoggedInCustomer,Integer.parseInt(pinField.getText()));
         int transferrerTotal = customerDatabaseHandler.transfer(Main.currentLoggedInAccount,Integer.parseInt(receivingAccountField.getText()),Integer.parseInt(amountField.getText()));
-        if (transferrerTotal==-1)
+        if(pinVerified==1)
         {
-            updatedTransferrerBalance.setText("Insufficient balance");
+            if (transferrerTotal==-1)
+            {
+                updatedTransferrerBalance.setText("Insufficient balance");
+            }
+            else
+            {
+                updatedTransferrerBalance.setText(Integer.toString(transferrerTotal));
+            /*int receiverTotal = customerDatabaseHandler.deposit(Integer.parseInt(receivingAccountField.getText()),Integer.parseInt(amountField.getText()));
+            updatedReceiverBalance.setText(Integer.toString(receiverTotal));*/
+            }
+
+            confirmButton.setVisible(false);
         }
         else
         {
-            updatedTransferrerBalance.setText(Integer.toString(transferrerTotal));
-            /*int receiverTotal = customerDatabaseHandler.deposit(Integer.parseInt(receivingAccountField.getText()),Integer.parseInt(amountField.getText()));
-            updatedReceiverBalance.setText(Integer.toString(receiverTotal));*/
+            pinField.clear();
+            updatedTransferrerBalance.setText("Invalid PIN");
         }
-
-        confirmButton.setVisible(false);
     }
 
     @FXML public void dismissButtonClicked()

@@ -21,6 +21,7 @@ public class FeaturesScreenController implements Initializable{
     @FXML Button generateStatementButton = new Button();
     @FXML Button currentInvestmentsButton = new Button();
     @FXML Button userProfileButton = new Button();
+    @FXML Button newBankAccountButton = new Button();
     @FXML Button signOutButton = new Button();
 
     public void setFeaturesScene() throws IOException
@@ -49,6 +50,13 @@ public class FeaturesScreenController implements Initializable{
         Main.featureWindow.show();
     }
 
+    @FXML public void checkBalanceButtonClicked() throws IOException
+    {
+        Main.checkBalanceScreen.setCheckBalanceScene();
+        Main.featureWindow.setScene(Main.checkBalanceScreen.getCheckBalanceScene());
+        Main.featureWindow.show();
+    }
+
     @FXML public void transferFundsButtonClicked() throws IOException
     {
         Main.transferFundsFeature.setTransferFundsScene();
@@ -61,6 +69,20 @@ public class FeaturesScreenController implements Initializable{
         Main.recentTransactionsScreen.setRecentTransactionsScene();
         Main.featureWindow.setScene(Main.recentTransactionsScreen.getRecentTransactionsScene());
         Main.featureWindow.show();
+    }
+
+    @FXML public void userProfileButtonClicked() throws IOException
+    {
+        Main.userProfileScreen.setUserProfileScene();
+        Main.featureWindow.setScene(Main.userProfileScreen.getUserProfileScene());
+        Main.featureWindow.show();
+    }
+
+    @FXML public void newBankAccountButtonClicked() throws IOException
+    {
+        Main.signUpScreen.setSignUpScene(Integer.toString(Main.currentLoggedInCustomer));
+        Main.mainWindow.setScene(Main.signUpScreen.getSignUpScene());
+        Main.mainWindow.show();
     }
 
     @FXML public void signOutButtonClicked() throws IOException
@@ -80,6 +102,7 @@ public class FeaturesScreenController implements Initializable{
         generateStatementButton.getStyleClass().add("button-featuresscreen");
         currentInvestmentsButton.getStyleClass().add("button-featuresscreen");
         userProfileButton.getStyleClass().add("button-featuresscreen");
+        newBankAccountButton.getStyleClass().add("button-featuresscreen");
         //transferFundsButton.setShape(new Circle(0,0,25));
     }
 }

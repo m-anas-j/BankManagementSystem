@@ -114,8 +114,8 @@ public class SignUpScreenController implements Initializable{
             try
             {
                 getGenerateAccountNumberState = 1;
-                Main.signUpScreenContinued.setSignUpSceneContinued();
-                Main.mainWindow.setScene(Main.signUpScreenContinued.getSignUpSceneContinued());
+                Main.featuresScreen.setFeaturesScene();
+                Main.mainWindow.setScene(Main.featuresScreen.getFeaturesScene());
                 Main.mainWindow.show();
             }catch (IOException e)
             {
@@ -146,7 +146,7 @@ public class SignUpScreenController implements Initializable{
 
 
         System.out.println("Setting customer id value... " + SignUpScreenController.generatedCustomerId);
-        customerIdField.setText(SignUpScreenController.generatedCustomerId);
-
+        //customerIdField.setText(SignUpScreenController.generatedCustomerId);
+        customerIdField.setText(Integer.toString(Main.currentLoggedInCustomer));
     }
 }

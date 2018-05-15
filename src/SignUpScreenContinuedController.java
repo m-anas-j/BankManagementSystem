@@ -33,6 +33,7 @@ public class SignUpScreenContinuedController implements Initializable{
     @FXML TextField religionField = new TextField();
     @FXML TextField mobileNumberField = new TextField();
     @FXML Button generateCustomerIdButton = new Button();
+    @FXML Button notInterestedButton = new Button();
     boolean generateCustomerButtonState = true;
 
     public void setSignUpSceneContinued() throws IOException
@@ -48,59 +49,132 @@ public class SignUpScreenContinuedController implements Initializable{
     }
 
 
+    @FXML public void notInterestedButtonClicked()
+    {
+        Main.mainWindow.setScene(Main.welcomeScreen.getWelcomeScene());
+        Main.mainWindow.show();
+    }
+
 
     @FXML public void generateUserIdClicked() throws SQLException
     {
-        if (generateCustomerButtonState)
+        try
         {
-            String name = nameField.getText();
-            String dob = dateOfBirthField.getValue().toString();
-            String nationality = nationalityField.getText();
-            String gender = genderField.getValue();
-            String address = addressField.getText();
-            String religion = religionField.getText();
-            String password = passwordField.getText();
-            String pin = pinField.getText();
-            int mobileNumber = Integer.parseInt(mobileNumberField.getText());
-            CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
-            //customerDatabaseHandler.addNewCustomer("anas","27/08/97","bd","Male","CTG","Current Account","Muslim",null,123,"Nein?");
-            //long cust_id = customerDatabaseHandler.addNewCustomer("anas","2018/12/25","nationality","Male","ctg","Islam",12);
-            long cust_id = customerDatabaseHandler.addNewCustomer(name,dob,nationality,gender,address,religion,mobileNumber,password,pin);
-            StringBuilder sb = new StringBuilder();
-            sb.append("");
-            sb.append(cust_id);
-            userIdField.setText(sb.toString());
-            customerDatabaseHandler.clearMemory();
-            //set every field to false editable
-            nameField.setEditable(false);
-            dateOfBirthField.setEditable(false);
-            nationalityField.setEditable(false);
-            genderField.setEditable(false);
-            addressField.setEditable(false);
-            religionField.setEditable(false);
-            mobileNumberField.setEditable(false);
-            passwordField.setEditable(false);
-            confirmPasswordField.setEditable(false);
-            pinField.setEditable(false);
-            confirmPinField.setEditable(false);
+            if (generateCustomerButtonState && passwordField.getText().length()>=6 && pinField.getText().length()==4)
+            {
+                String name = nameField.getText();
+                String dob = dateOfBirthField.getValue().toString();
+                String nationality = nationalityField.getText();
+                String gender = genderField.getValue();
+                String address = addressField.getText();
+                String religion = religionField.getText();
+                String password = passwordField.getText();
+                String pin = pinField.getText();
+                int mobileNumber = Integer.parseInt(mobileNumberField.getText());
+                CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
+                //customerDatabaseHandler.addNewCustomer("anas","27/08/97","bd","Male","CTG","Current Account","Muslim",null,123,"Nein?");
+                //long cust_id = customerDatabaseHandler.addNewCustomer("anas","2018/12/25","nationality","Male","ctg","Islam",12);
+                long cust_id = customerDatabaseHandler.addNewCustomer(name,dob,nationality,gender,address,religion,mobileNumber,password,pin);
+                StringBuilder sb = new StringBuilder();
+                sb.append("");
+                sb.append(cust_id);
+                userIdField.setText(sb.toString());
+                customerDatabaseHandler.clearMemory();
 
-            //change generate button
-            generateCustomerIdButton.getStyleClass().add("button-blue");
-            generateCustomerIdButton.setText("Continue");
-            generateCustomerButtonState = false;
+                if (passwordField.getText().length()<6 || pinField.getText().length()!=4 || passwordField.getText()!=confirmPasswordField.getText() || pinField.getText()!=confirmPinField.getText())
+                {
+                    System.out.println(passwordField.getText() + " " + confirmPasswordField.getText());
+                    if (passwordField.getText().length() < 6) {
+                        passwordField.clear();
+                        passwordField.setPromptText("Must be atleast 6 characters!");
+                    } else if (pinField.getText().length() != 4) {
+                        pinField.clear();
+                        pinField.setPromptText("Must be 4 digits!");
+                    }
+                }
+            /*else if (passwordField.getText()!=confirmPasswordField.getText())
+            {
+                confirmPasswordField.clear();
+                confirmPasswordField.setPromptText("Passwords do not match!");
+            }
+            else if (pinField.getText()!=confirmPinField.getText())
+            {
+                confirmPinField.clear();
+                pinField.setPromptText("PINs do not match!");
+            }*/
+
+
+                //set every field to false editable
+                nameField.setEditable(false);
+                dateOfBirthField.setEditable(false);
+                nationalityField.setEditable(false);
+                genderField.setEditable(false);
+                addressField.setEditable(false);
+                religionField.setEditable(false);
+                mobileNumberField.setEditable(false);
+                passwordField.setEditable(false);
+                confirmPasswordField.setEditable(false);
+                pinField.setEditable(false);
+                confirmPinField.setEditable(false);
+
+                //change generate button
+                generateCustomerIdButton.getStyleClass().add("button-blue");
+                generateCustomerIdButton.setText("Continue");
+                generateCustomerButtonState = false;
+            }
+        /*else if (passwordField.getText().length()<6 || pinField.getText().length()!=4 || passwordField.getText()!=confirmPasswordField.getText() || pinField.getText()!=confirmPinField.getText())
+        {
+            System.out.println(passwordField.getText() + " " + confirmPasswordField.getText());
+            if(passwordField.getText().length()<6)
+            {
+                passwordField.clear();
+                passwordField.setPromptText("Must be atleast 6 characters!");
+            }
+            else if (pinField.getText().length()!=4)
+            {
+                pinField.clear();
+                pinField.setPromptText("Must be 4 digits!");
+            }
+            else if (passwordField.getText()!=confirmPasswordField.getText())
+            {
+                confirmPasswordField.clear();
+                confirmPasswordField.setPromptText("Passwords do not match!");
+            }
+            else if (pinField.getText()!=confirmPinField.getText())
+            {
+                confirmPinField.clear();
+                pinField.setPromptText("PINs do not match!");
+            }
+        }*/
+            else
+            {
+                generateCustomerButtonState = true;
+                try
+                {
+                    Main.currentLoggedInCustomer = Integer.parseInt(userIdField.getText());
+                    String generatedCustomerId = userIdField.getText();
+                    SignUpScreenController.generatedCustomerId = generatedCustomerId;
+                    Main.signUpScreen.setSignUpScene(generatedCustomerId);
+                    Main.mainWindow.setScene(Main.signUpScreen.getSignUpScene());
+                    Main.mainWindow.show();
+                }catch (IOException e)
+                {
+
+                }
+            }
         }
-        else
+        catch (NumberFormatException e)
         {
-            try
+            if (passwordField.getText().length()<6 || pinField.getText().length()!=4 || passwordField.getText()!=confirmPasswordField.getText() || pinField.getText()!=confirmPinField.getText())
             {
-                String generatedCustomerId = userIdField.getText();
-                SignUpScreenController.generatedCustomerId = generatedCustomerId;
-                Main.signUpScreen.setSignUpScene(generatedCustomerId);
-                Main.mainWindow.setScene(Main.signUpScreen.getSignUpScene());
-                Main.mainWindow.show();
-            }catch (IOException e)
-            {
-
+                System.out.println(passwordField.getText() + " " + confirmPasswordField.getText());
+                if (passwordField.getText().length() < 6) {
+                    passwordField.clear();
+                    passwordField.setPromptText("Must be atleast 6 characters!");
+                } else if (pinField.getText().length() != 4) {
+                    pinField.clear();
+                    pinField.setPromptText("Must be 4 digits!");
+                }
             }
         }
     }

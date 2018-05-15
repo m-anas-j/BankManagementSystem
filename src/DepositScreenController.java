@@ -42,11 +42,22 @@ public class DepositScreenController implements Initializable{
 
     @FXML public void confirmButtonClicked()
     {
+        Main.currentLoggedInAccount = Integer.parseInt(depositAccountList.getValue());
+        //System.out.println(Main.currentLoggedInAccount);
         CustomerDatabaseHandler customerDatabaseHandler = new CustomerDatabaseHandler("bankmanagementsystem","bankmanagementsystem");
-        int total = customerDatabaseHandler.deposit(Main.currentLoggedInAccount,Integer.parseInt(amountField.getText()));
-        updatedBalanceField.setText(Integer.toString(total));
+        int pinVerified = customerDatabaseHandler.verifyPin(Main.currentLoggedInCustomer,Integer.parseInt(pinField.getText()));
+        if (pinVerified==1)
+        {
+            int total = customerDatabaseHandler.deposit(Main.currentLoggedInAccount,Integer.parseInt(amountField.getText()));
+            updatedBalanceField.setText(Integer.toString(total));
 
-        confirmButton.setVisible(false);
+            confirmButton.setVisible(false);
+        }
+        else
+        {
+            updatedBalanceField.setText("Invalid Pin");
+        }
+
     }
 
     @FXML public void desmissButtonClicked()
