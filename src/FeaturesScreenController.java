@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.Scene;
 
@@ -23,6 +24,7 @@ public class FeaturesScreenController implements Initializable{
     @FXML Button userProfileButton = new Button();
     @FXML Button newBankAccountButton = new Button();
     @FXML Button signOutButton = new Button();
+    @FXML Label welcomeUser = new Label();
 
     public void setFeaturesScene() throws IOException
     {
@@ -40,6 +42,7 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.depositScreen.setDepositScene();
         Main.featureWindow.setScene(Main.depositScreen.getDepositScene());
+        Main.featureWindow.setTitle("Deposit Funds");
         Main.featureWindow.show();
     }
 
@@ -47,6 +50,7 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.withdrawScreen.setWithdrawScene();
         Main.featureWindow.setScene(Main.withdrawScreen.getWithdrawScene());
+        Main.featureWindow.setTitle("Withdraw Funds");
         Main.featureWindow.show();
     }
 
@@ -54,6 +58,7 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.checkBalanceScreen.setCheckBalanceScene();
         Main.featureWindow.setScene(Main.checkBalanceScreen.getCheckBalanceScene());
+        Main.featureWindow.setTitle("Check Balance");
         Main.featureWindow.show();
     }
 
@@ -61,6 +66,7 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.transferFundsFeature.setTransferFundsScene();
         Main.featureWindow.setScene(Main.transferFundsFeature.getTransferFundsScene());
+        Main.featureWindow.setTitle("Transfer Funds");
         Main.featureWindow.show();
     }
 
@@ -68,6 +74,7 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.recentTransactionsScreen.setRecentTransactionsScene();
         Main.featureWindow.setScene(Main.recentTransactionsScreen.getRecentTransactionsScene());
+        Main.featureWindow.setTitle("Recent Transactions");
         Main.featureWindow.show();
     }
 
@@ -75,6 +82,7 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.userProfileScreen.setUserProfileScene();
         Main.featureWindow.setScene(Main.userProfileScreen.getUserProfileScene());
+        Main.featureWindow.setTitle("User Profile");
         Main.featureWindow.show();
     }
 
@@ -82,6 +90,7 @@ public class FeaturesScreenController implements Initializable{
     {
         Main.signUpScreen.setSignUpScene(Integer.toString(Main.currentLoggedInCustomer));
         Main.mainWindow.setScene(Main.signUpScreen.getSignUpScene());
+        Main.featureWindow.setTitle("New Bank Account Registration");
         Main.mainWindow.show();
     }
 
@@ -103,6 +112,7 @@ public class FeaturesScreenController implements Initializable{
         currentInvestmentsButton.getStyleClass().add("button-featuresscreen");
         userProfileButton.getStyleClass().add("button-featuresscreen");
         newBankAccountButton.getStyleClass().add("button-featuresscreen");
+        welcomeUser.setText(welcomeUser.getText() + " " + String.valueOf(Main.currentLoggedInCustomer));
         //transferFundsButton.setShape(new Circle(0,0,25));
     }
 }
